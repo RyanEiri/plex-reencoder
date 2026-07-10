@@ -7,6 +7,15 @@ former monorepo that also contained the unrelated VHS digitization pipeline
 ([vhs-cli](https://github.com/RyanEiri/vhs-cli),
 [vhs-gui](https://github.com/RyanEiri/vhs-gui)) — no relationship to those repos.
 
+## Hardware
+
+Encodes run on the same Linux workstation as the VHS pipeline — **AMD Ryzen 9
+5900X (12-core)**. Re-encoding here is CPU-only (libx264/libx265 via ffmpeg);
+none of these scripts use the machine's GPU (AMD Radeon RX 7800 XT). Encodes
+stage to a local drive (`/media/ryan/Patriot/Videos/plex_encode`) before moving
+to the NFS server `files.buddha.lan`, which hosts the actual `Ironwolf8_1` /
+`Barracuda8_1` media shares this tooling operates on.
+
 ## Scripts
 
 | Script | Purpose |
