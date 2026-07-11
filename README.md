@@ -1,5 +1,19 @@
 # plex-reencoder
 
+```
+        ▀▀█                                                                       █
+ ▄▄▄▄     █     ▄▄▄   ▄   ▄          ▄ ▄▄   ▄▄▄    ▄▄▄   ▄ ▄▄    ▄▄▄    ▄▄▄    ▄▄▄█   ▄▄▄    ▄ ▄▄
+ █▀ ▀█    █    █▀  █   █▄█           █▀  ▀ █▀  █  █▀  █  █▀  █  █▀  ▀  █▀ ▀█  █▀ ▀█  █▀  █   █▀  ▀
+ █   █    █    █▀▀▀▀   ▄█▄    ▀▀▀    █     █▀▀▀▀  █▀▀▀▀  █   █  █      █   █  █   █  █▀▀▀▀   █
+ ██▄█▀    ▀▄▄  ▀█▄▄▀  ▄▀ ▀▄          █     ▀█▄▄▀  ▀█▄▄▀  █   █  ▀█▄▄▀  ▀█▄█▀  ▀█▄██  ▀█▄▄▀   █
+ █
+ ▀
+```
+
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+![Language: Bash](https://img.shields.io/badge/language-Bash-4EAA25.svg)
+![Platform: Linux](https://img.shields.io/badge/platform-Linux-lightgrey.svg)
+
 Bash tooling for surveying and re-encoding a Plex media library (NFS-mounted,
 `Ironwolf8_1` and `Barracuda8_1` shares on `files.buddha.lan`) down to
 space-efficient H.264/HEVC without a meaningful quality loss. Split out from a
