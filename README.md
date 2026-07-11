@@ -1,5 +1,14 @@
 # plex-reencoder
 
+![plex-reencoder banner](banner.png)
+
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+![Language: Bash](https://img.shields.io/badge/language-Bash-4EAA25.svg)
+![Platform: Linux](https://img.shields.io/badge/platform-Linux-lightgrey.svg)
+
+<details>
+<summary>Terminal version</summary>
+
 ```
 +----+ > PLEX-REENCODER +-----------------------------------------------------+
 |                                                                             |
@@ -22,9 +31,9 @@
 +-----------------------------------------------------------------------------+
 ```
 
-[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
-![Language: Bash](https://img.shields.io/badge/language-Bash-4EAA25.svg)
-![Platform: Linux](https://img.shields.io/badge/platform-Linux-lightgrey.svg)
+`cat banner.ans` in a 256-color terminal for the vibrant ANSI-colored version.
+
+</details>
 
 Bash tooling for surveying and re-encoding a Plex media library (NFS-mounted,
 `Ironwolf8_1` and `Barracuda8_1` shares on `files.buddha.lan`) down to
