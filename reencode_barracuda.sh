@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# reencode_barracuda.sh — re-encode Barracuda8_1 high-bitrate files to HEVC
+# reencode_barracuda.sh — re-encode high-bitrate files on the secondary
+# share to HEVC
 #
 # Workflow per file:
-#   1. Encode source (NFS) → staging (Patriot SSD)
+#   1. Encode source (NFS) → staging (local scratch SSD)
 #   2. Verify: duration match within 2 s, video+audio streams present
 #   3. Copy staged file back to source directory (overwrites original)
 #   4. Remove staged copy
@@ -18,11 +19,13 @@
 # Usage:
 #   ./reencode_barracuda.sh                     # process entire queue
 #   ./reencode_barracuda.sh /path/to/file.mkv   # process a single file
+#
+# Env overrides: STAGING
 
 set -euo pipefail
 
 QUEUE="$HOME/Videos/barracuda_reencode_queue.txt"
-STAGING="/media/ryan/Patriot/reencode_staging"
+STAGING="${STAGING:-/media/$USER/scratch/reencode_staging}"
 LOG_DIR="$HOME/Videos/logs/reencode"
 DONE_LOG="$LOG_DIR/done.log"
 FAIL_LOG="$LOG_DIR/fail.log"

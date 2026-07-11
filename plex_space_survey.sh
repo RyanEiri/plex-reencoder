@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# plex_space_survey.sh — Survey disk usage on Ironwolf8_1 NFS-mounted Plex library.
+# plex_space_survey.sh — Survey disk usage on the NFS-mounted Plex library.
 # Logs to ./logs/plex_survey_<timestamp>.log
 #
 # Usage: ./plex_space_survey.sh
 # Env overrides: MOVIES_DIR, TVSHOWS_DIR, TOP_N, LOG_DIR
 set -euo pipefail
 
-MOVIES_DIR="${MOVIES_DIR:-/mnt/media/movies/Ironwolf8_1}"
-TVSHOWS_DIR="${TVSHOWS_DIR:-/mnt/media/tvshows/Ironwolf8_1}"
+MOVIES_DIR="${MOVIES_DIR:-/mnt/media/movies/primary}"
+TVSHOWS_DIR="${TVSHOWS_DIR:-/mnt/media/tvshows/primary}"
 TOP_N="${TOP_N:-30}"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 LOG_DIR="${LOG_DIR:-$SCRIPT_DIR/logs}"
@@ -18,7 +18,7 @@ mkdir -p "$LOG_DIR"
 exec > >(tee -a "$LOG") 2>&1
 
 echo "========================================"
-echo "  Plex Space Survey — Ironwolf8_1"
+echo "  Plex Space Survey"
 echo "  $(date)"
 echo "  Log: $LOG"
 echo "========================================"

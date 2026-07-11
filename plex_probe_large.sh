@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# plex_probe_large.sh — ffprobe the largest video files across Ironwolf8_1.
+# plex_probe_large.sh — ffprobe the largest video files across the primary share.
 # Reports codec, bitrate, resolution, and duration to identify bloated/inefficient encodes.
 # Logs to ./logs/plex_probe_<timestamp>.log
 #
@@ -9,8 +9,8 @@
 # ffprobe only reads container headers over NFS — it does NOT download whole files.
 set -euo pipefail
 
-MOVIES_DIR="${MOVIES_DIR:-/mnt/media/movies/Ironwolf8_1}"
-TVSHOWS_DIR="${TVSHOWS_DIR:-/mnt/media/tvshows/Ironwolf8_1}"
+MOVIES_DIR="${MOVIES_DIR:-/mnt/media/movies/primary}"
+TVSHOWS_DIR="${TVSHOWS_DIR:-/mnt/media/tvshows/primary}"
 TOP_N="${TOP_N:-25}"
 FFPROBE_BIN="${FFPROBE_BIN:-ffprobe}"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -27,7 +27,7 @@ if ! command -v "$FFPROBE_BIN" &>/dev/null; then
 fi
 
 echo "========================================"
-echo "  Plex Large File Probe — Ironwolf8_1"
+echo "  Plex Large File Probe"
 echo "  $(date)"
 echo "  Top $TOP_N largest video files"
 echo "========================================"

@@ -30,7 +30,7 @@
 # Env overrides: STAGING_BASE, CRF, PRESET, FFMPEG_BIN, LANG_PREFS, LOG_DIR
 set -euo pipefail
 
-STAGING_BASE="${STAGING_BASE:-/media/ryan/Patriot/Videos/plex_encode}"
+STAGING_BASE="${STAGING_BASE:-/media/$USER/scratch/Videos/plex_encode}"
 LIST_FILE="${1:-$(dirname "$0")/plex_reencode_list.txt}"
 CRF="${CRF:-20}"
 MAX_HEIGHT="${MAX_HEIGHT:-1080}"

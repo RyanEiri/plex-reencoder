@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# plex_find_dupes.sh — Find potentially duplicate movies on Ironwolf8_1.
+# plex_find_dupes.sh — Find potentially duplicate movies on the primary share.
 # Normalizes directory names to detect the same title with different encodings.
 # Logs to ./logs/plex_dupes_<timestamp>.log
 #
@@ -10,7 +10,7 @@
 # (e.g. a remake and the original) will also be flagged. Review output carefully.
 set -euo pipefail
 
-MOVIES_DIR="${MOVIES_DIR:-/mnt/media/movies/Ironwolf8_1}"
+MOVIES_DIR="${MOVIES_DIR:-/mnt/media/movies/primary}"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 LOG_DIR="${LOG_DIR:-$SCRIPT_DIR/logs}"
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
