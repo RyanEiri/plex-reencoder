@@ -286,7 +286,10 @@ for source in "${sources[@]}"; do
     ff_args+=(-hide_banner -thread_queue_size 512 -i "$source")
 
     # Video: x264, scale to 1080p if taller; tonemap if HDR
-    ff_args+=(-map 0:v:0 -c:v libx264 -crf "$CRF" -preset "$PRESET")
+    # Always force 8-bit yuv420p output — x264 High 10 profile (from 10-bit
+    # sources) has essentially no consumer hardware decoder support and
+    # causes artifacts/corruption on Apple TV, smart TVs, AirPlay, etc.
+    ff_args+=(-map 0:v:0 -c:v libx264 -crf "$CRF" -preset "$PRESET" -pix_fmt yuv420p)
     if [[ "$src_height" -gt "$MAX_HEIGHT" ]]; then
         if [[ "$color_xfer" == "smpte2084" || "$color_xfer" == "arib-std-b67" ]]; then
             ff_args+=(-vf "scale=-2:${MAX_HEIGHT}:flags=lanczos,zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p")
