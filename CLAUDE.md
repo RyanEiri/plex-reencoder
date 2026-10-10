@@ -26,6 +26,11 @@ don't assume shared conventions beyond both being bash.
   encode directly onto the NFS mount.
 - Auto-discard-if-larger-than-source is a deliberate safety net in
   `plex_reencode.sh` — don't remove it when touching the encode logic.
+- `plex_reencode.sh` always forces `-pix_fmt yuv420p` (8-bit) on x264 output,
+  regardless of scaling/tonemap path — 10-bit sources without an HDR
+  `color_transfer` tag used to slip through to x264 High 10 profile, which has
+  almost no hardware decoder support and causes playback artifacts. Don't make
+  this conditional again.
 - Path-safety guards (`/mnt/media` prefix + minimum directory-depth checks) in
   `plex_cleanup.sh`/`plex_swap.sh` exist specifically to prevent an over-broad list
   file from deleting near the NFS share root — preserve them in any similar script.
